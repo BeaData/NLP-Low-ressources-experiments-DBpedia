@@ -109,24 +109,17 @@ def main():
     # Run experiments
     # -------------------------------------------------
 
-    results_df = run_experiments(
-        configs
-    )
+    results_df = run_experiments(configs)
 
     if results_df is None:
 
-        print(
-            "No results were generated."
-        )
+        print("No results were generated")
 
         return
 
     if results_df.empty:
 
-        print(
-            "The results DataFrame is empty."
-        )
-
+        print("The results DataFrame is empty")
         return
 
     # -------------------------------------------------
@@ -143,7 +136,6 @@ def main():
     # -------------------------------------------------
 
     print()
-
     print("=" * 80)
     print("V1 DBPEDIA RESULTS")
     print("=" * 80)
@@ -151,27 +143,16 @@ def main():
     display_columns = [
 
         "Experiment",
-
         "Train size",
-
         "Variant",
-
         "Base Vectorizer",
-
         "StopWords",
-
         "Preprocessor",
-
         "Classifier",
-
         "Accuracy",
-
         "Macro F1",
-
         "Train time (s)",
-
         "Inference time (s)",
-
     ]
 
     print(
@@ -180,11 +161,8 @@ def main():
         ].round(
             {
                 "Accuracy": 4,
-
                 "Macro F1": 4,
-
                 "Train time (s)": 4,
-
                 "Inference time (s)": 4,
             }
         )
@@ -194,56 +172,35 @@ def main():
     # Confusion matrices
     # -------------------------------------------------
 
-    plot_confusion_matrices(
-        results_df
-    )
+    plot_confusion_matrices(results_df)
 
     # -------------------------------------------------
     # Save results
     # -------------------------------------------------
 
     csv_columns = [
-
         "Experiment",
-
         "Train size",
-
         "Variant",
-
         "Preprocessor",
-
         "Vectorizer",
-
         "Base Vectorizer",
-
         "StopWords",
-
         "Classifier",
-
         "Accuracy",
-
         "Macro F1",
-
         "Train time (s)",
-
         "Inference time (s)",
-
     ]
 
     save_stage_csv(
         df=results_df,
-
         columns=csv_columns,
-
         path="results_DBpedia_V1_baseline.csv",
     )
 
     print()
-
-    print(
-        "Saved: "
-        "results_DBpedia_V1_baseline.csv"
-    )
+    print("Saved: results_DBpedia_V1_baseline.csv")
 
 
 if __name__ == "__main__":
