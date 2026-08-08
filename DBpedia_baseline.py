@@ -17,6 +17,8 @@ The experiments are run on nested training sets of:
 All models are evaluated on the same fixed DBpedia test set.
 """
 
+# import pandas as pd
+
 from DBpedia_framework import (
     TRAIN_SIZES,
     add_stage_metadata,
@@ -83,12 +85,7 @@ def main():
     print("=" * 80)
 
     print()
-
-    print(
-        "Training sizes: "
-        f"{TRAIN_SIZES}"
-    )
-
+    print(f"Training sizes: {TRAIN_SIZES}")
     print()
 
     # -------------------------------------------------
@@ -100,10 +97,7 @@ def main():
         classifier_specs=CLASSIFIER_SPECS,
     )
 
-    print(
-        f"Number of experiments: "
-        f"{len(configs)}"
-    )
+    print(f"Number of experiments: {len(configs)}")
 
     # -------------------------------------------------
     # Run experiments
@@ -113,13 +107,12 @@ def main():
 
     if results_df is None:
 
-        print("No results were generated")
-
+        print("No results were generated.")
         return
 
     if results_df.empty:
 
-        print("The results DataFrame is empty")
+        print("The results DataFrame is empty.")
         return
 
     # -------------------------------------------------
@@ -136,12 +129,12 @@ def main():
     # -------------------------------------------------
 
     print()
+
     print("=" * 80)
     print("V1 DBPEDIA RESULTS")
     print("=" * 80)
 
     display_columns = [
-
         "Experiment",
         "Train size",
         "Variant",
