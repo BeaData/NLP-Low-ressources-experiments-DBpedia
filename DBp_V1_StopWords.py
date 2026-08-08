@@ -4,7 +4,10 @@
 V1 - Stop words experiment.
 
 Compare Count/TF-IDF vectorizers with and without English stop words,
-using MultinomialNB and LinearSVC, across multiple training sizes.
+using MultinomialNB and LinearSVC.
+
+The experiments are run on nested training sets of:
+50, 200, 500, 2000, and 10000 observations.
 
 Winners are selected by Macro F1, then Accuracy, then inference time.
 """
