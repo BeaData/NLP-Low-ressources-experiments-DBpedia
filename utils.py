@@ -26,9 +26,11 @@ def load_csv(path: str) -> pd.DataFrame | None:  # type: ignore
     if not isinstance(path, str):
         print("Error: path must be a string.")
         return None
+
     if not os.path.isfile(path):
         print(f"Error: file '{path}' does not exist.")
         return None
+
     if not path.lower().endswith(".csv"):
         print("Error: bad format, file is not a CSV.")
         return None
@@ -118,10 +120,7 @@ def load_winners(csv_path: str) -> pd.DataFrame:
         ]
         if column in winners.columns
     ]
-
-    print(
-        winners[display_columns]
-    )
+    print(winners[display_columns])
 
     return winners
 
@@ -132,7 +131,6 @@ def prepare(
     """
     Build the text corpus and extract class labels.
 
-    ```
     Supported formats:
 
     AG News:
@@ -155,12 +153,7 @@ def prepare(
         and "Class Index" in df.columns
     ):
 
-        text = (
-            df["Text"]
-            .fillna("")
-            .astype(str)
-        )
-
+        text = (df["Text"].fillna("").astype(str))
         labels = df["Class Index"]
 
     elif (
@@ -170,15 +163,10 @@ def prepare(
     ):
 
         text = (
-            df["Title"]
-            .fillna("")
-            .astype(str)
+            df["Title"].fillna("").astype(str)
             + " "
-            + df["Description"]
-            .fillna("")
-            .astype(str)
+            + df["Description"].fillna("").astype(str)
         )
-
         labels = df["Class Index"]
 
     elif (
@@ -188,15 +176,10 @@ def prepare(
     ):
 
         text = (
-            df["title"]
-            .fillna("")
-            .astype(str)
+            df["title"].fillna("").astype(str)
             + " "
-            + df["content"]
-            .fillna("")
-            .astype(str)
+            + df["content"].fillna("").astype(str)
         )
-
         labels = df["label"]
 
     else:
