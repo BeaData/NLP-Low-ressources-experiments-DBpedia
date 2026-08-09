@@ -11,7 +11,6 @@ This stage evaluates the four baseline combinations:
 * TF-IDF + LinearSVC
 
 The experiments are run on nested training sets of:
-
 50, 200, 500, 2000, and 10000 observations.
 
 All models are evaluated on the same fixed DBpedia test set.
@@ -121,7 +120,7 @@ def main():
 
     results_df = add_stage_metadata(
         results_df,
-        experiment_name="V1",
+        experiment_name="Baseline",
     )
 
     # -------------------------------------------------
@@ -189,11 +188,11 @@ def main():
     save_stage_csv(
         df=results_df,
         columns=csv_columns,
-        path="results_DBpedia_V1_baseline.csv",
+        path="results_DBpedia_baseline.csv",
     )
 
     print()
-    print("Saved: results_DBpedia_V1_baseline.csv")
+    print("Saved: results_DBpedia_baseline.csv")
 
 
 if __name__ == "__main__":
