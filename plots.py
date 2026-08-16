@@ -582,7 +582,7 @@ def plot_embedding_performance(results):
         )
 
     ax.set_title(
-        "Sentence Embeddings Performance Evolution",
+        "Embeddings Performance Evolution",
         fontsize=16,
         fontweight="bold",
     )
